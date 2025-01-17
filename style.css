@@ -927,6 +927,256 @@ h1 {
   }
 }
 
+.loader2 {
+  &::before {
+    inset: 0.25rem;
+    background: var(--clr);
+    border-radius: 99rem;
+    border: 5px solid transparent;
+    background: radial-gradient(
+          100% 100% at 50% 2.5px,
+          var(--clr) 0,
+          var(--clr) 2.5px,
+          transparent 2.5px
+        )
+        border-box,
+      conic-gradient(transparent 20%, var(--clr) 90%) border-box;
+
+    mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    animation: loader2 1s infinite linear;
+  }
+}
+@keyframes loader2 {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.loader3 {
+  grid-column: span 2;
+  width: calc(3 * var(--length));
+
+  &::before {
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 80%;
+    height: 20px;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0 40%,
+      var(--clr) 40% 60%,
+      transparent 60%
+    );
+    background-size: 300% 100%;
+    animation: loader3 1s infinite linear;
+    background-position: right 0;
+    border: 1px solid var(--clr);
+  }
+}
+@keyframes loader3 {
+  to {
+    background-position: left 0;
+  }
+}
+
+.button {
+  grid-column: span 2;
+  color: white;
+  height: unset;
+  width: unset;
+  padding: 0.75rem 1.25rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  cursor: pointer;
+}
+
+.button1 {
+  border: 2px solid black;
+  background: rgb(80, 80, 80);
+  overflow: hidden;
+
+  &::before {
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.654) 50%,
+      transparent 70%
+    );
+    background-repeat: no-repeat;
+    transform: translate(-100%, 0);
+    transition: none;
+  }
+  &:hover {
+    &::before {
+      transform: translate(100%, 0);
+      transition: all 1s ease;
+    }
+  }
+}
+
+.button2 {
+  border: 2px solid black;
+  color: rgb(80, 80, 80);
+  background: white;
+  overflow: hidden;
+
+  &::before {
+    content: "Hover Me";
+    font-family: inherit;
+    padding: inherit;
+    font-size: inherit;
+    inset: 0;
+    color: white;
+    background: rgb(80, 80, 80);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: all 1s ease;
+  }
+  &:hover {
+    &::before {
+      clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    }
+  }
+}
+
+.v {
+  background: none;
+  &::before {
+    top: 50%;
+    left: 50%;
+    translate: -65% -40%;
+    height: calc(0.7 * var(--length));
+    width: calc(0.3 * var(--length));
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 30%,
+      70% 30%,
+      70% 70%,
+      100% 70%,
+      100% 100%,
+      0 100%
+    );
+    border-radius: 0.125rem;
+    rotate: -45deg;
+    transform: perspective(1px) rotateY(-1.75deg);
+    background: var(--clr);
+    animation: v 2s infinite linear;
+  }
+}
+
+.w {
+  background-color: unset;
+
+  mask: radial-gradient(circle, transparent 20%, black 20%);
+
+  &::before {
+    inset: 0;
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    border: 4px solid transparent;
+    background: linear-gradient(
+          0deg,
+          transparent calc(50% - 4.5px),
+          var(--clr) calc(50% - 4.5px) calc(50% + 4.5px),
+          transparent calc(50% + 4.5px)
+        )
+        no-repeat,
+      linear-gradient(
+          120deg,
+          transparent calc(50% - 4.5px),
+          var(--clr) calc(50% - 4.5px) calc(50% + 4.5px),
+          transparent calc(50% + 4.5px)
+        )
+        no-repeat,
+      linear-gradient(
+          240deg,
+          transparent calc(50% - 4.5px),
+          var(--clr) calc(50% - 4.5px) calc(50% + 4.5px),
+          transparent calc(50% + 4.5px)
+        )
+        no-repeat,
+      radial-gradient(circle at 50% 50%, var(--clr) 55%, transparent 55%)
+        no-repeat;
+  }
+}
+
+.x {
+  width: calc(0.7 * var(--length));
+  height: calc(0.8 * var(--length));
+  margin-top: calc(0.1 * var(--length));
+  border-radius: 0 0 0.125rem 0.125rem;
+  background: linear-gradient(
+      180deg,
+      var(--clr) 0 25%,
+      transparent 25% 70%,
+      var(--clr) 70% 100%
+    ),
+    linear-gradient(
+      90deg,
+      var(--clr) 0 30%,
+      white 30% 37%,
+      var(--clr) 37% 63%,
+      white 63% 70%,
+      var(--clr) 69% 100%
+    );
+
+  &::before {
+    width: calc(100% + 10px);
+    height: 3px;
+    bottom: 100%;
+    left: -5px;
+    background-color: var(--clr);
+    border-radius: 99rem;
+  }
+
+  &::after {
+    width: 60%;
+    height: 0.75rem;
+    bottom: 100%;
+    left: 20%;
+    border-radius: 0.125rem;
+    border: 3px solid var(--clr);
+    translate: 0 3px;
+  }
+}
+
+.x1 {
+  border: 3px solid var(--clr);
+  background: linear-gradient(
+      180deg,
+      white 0 25%,
+      transparent 25% 70%,
+      white 70% 100%
+    ),
+    linear-gradient(
+      90deg,
+      white 0 30%,
+      var(--clr) 30% 37%,
+      white 37% 63%,
+      var(--clr) 63% 70%,
+      white 69% 100%
+    );
+  &::before {
+    width: calc(100% + 14px);
+    height: 3px;
+    bottom: 100%;
+    left: -7px;
+    background-color: var(--clr);
+    border-radius: 99rem;
+  }
+
+  &::after {
+    width: 68%;
+    height: 0.55rem;
+    bottom: 110%;
+    left: 16%;
+    border-radius: 0.125rem;
+    border: 3px solid var(--clr);
+  }
+}
+
 .stroke,
 .stroke::before,
 .stroke::after {
